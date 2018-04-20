@@ -16,7 +16,7 @@ def internet_on(address):
 
     for ip in ip_list:
         try:
-            request.urlopen("http://" + ip, timeout=1)
+            request.urlopen("http://" + ip, timeout=3)
             success = True
         except error.URLError as err:
             print("Could not reach: " + ip)
