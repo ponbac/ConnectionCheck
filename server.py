@@ -10,12 +10,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    internet_connection_paragraph = '<p>Internet Connection: ' + str(Main.internet_status) + '</p>'
-    current_time_paragraph = '<p>Current time: ' + Main.current_time + '</p>'
-    last_dc_paragraph = '<p>Last DC: ' + Main.last_dc + '</p>'
-    total_dc_paragraph = '<p>Total disconnects since ' + Main.start_time + ': ' + Main.total_dc + '</p>'
+    start_time_paragraph = '<p>Start time: ' + '{:.19}'.format(Main.start_time) + '</p>'
+    internet_connection_paragraph = '<p>Internet Connection: <b>' + str(Main.internet_status) + '</b></p>'
+    current_time_paragraph = '<p>Current time: ' + '{:.19}'.format(Main.current_time) + '</p>'
+    last_dc_paragraph = '<p>Last disconnect: ' + Main.last_dc + '</p>'
+    total_dc_paragraph = '<p>Total disconnects: <b>' + Main.total_dc + '</b></p>'
 
-    return internet_connection_paragraph + current_time_paragraph + last_dc_paragraph + total_dc_paragraph
+    return start_time_paragraph + internet_connection_paragraph + current_time_paragraph + last_dc_paragraph + total_dc_paragraph
 
 
 if __name__ == '__main__':
