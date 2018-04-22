@@ -1,6 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
 from threading import Thread
-from main import Main
+from Main import Main
 
 main_thread = Main()
 main_thread.start()
@@ -19,5 +19,10 @@ def index():
     return start_time_paragraph + internet_connection_paragraph + current_time_paragraph + last_dc_paragraph + total_dc_paragraph
 
 
+@app.route('/test')
+def test():
+    return render_template('test.html', start_time=Main.start_time, internet_status=Main.internet_status, current_time=Main.current_time, last_dc=Main.last_dc, total_dc=Main.total_dc)
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='localhost')

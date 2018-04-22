@@ -20,12 +20,11 @@ class Main (threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        Main.start_time = str(datetime.now())
-        print("--Connection checker--")
+        Main.start_time = '{:.19}'.format(str(datetime.now()))
 
         ip_addresses = ["216.58.192.142", "aftonbladet.se", "mixer.com", "op.gg", "sundsvall.se"]
 
-        def internet_on(self, ip_list):
+        def internet_on(ip_list):
             success = False
 
             for ip in ip_list:
@@ -42,18 +41,18 @@ class Main (threading.Thread):
                     print("URL that generated the error code: ", ip)
                     print("Error description: Socket error.")
 
-            if success == False:
+            if not success:
                 ConError()
 
             return success
 
         while True:
-            Main.internet_status = internet_on(self, ip_addresses)
-            Main.current_time = str(datetime.now())
-            Main.last_dc = str(ConError.last_dc)
+            Main.internet_status = internet_on(ip_addresses)
+            Main.current_time = '{:.19}'.format(str(datetime.now()))
+            Main.last_dc = '{:.19}'.format(str(ConError.last_dc))
             Main.total_dc = str(ConError.total_dc)
 
-            if Main.internet_status == False:
+            if not Main.internet_status:
                 sleep(300)
             else:
                 sleep(randint(7, 30))
