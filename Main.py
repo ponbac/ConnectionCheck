@@ -15,6 +15,7 @@ class Main (threading.Thread):
     last_dc = ""
     start_time = ""
     total_dc = ""
+    dc_list = []
 
     def __init__(self):
         threading.Thread.__init__(self)
@@ -42,7 +43,8 @@ class Main (threading.Thread):
                     print("Error description: Socket error.")
 
             if not success:
-                ConError()
+                Main.dc_list.append(ConError())
+                print(Main.dc_list[0].time)
 
             return success
 

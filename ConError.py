@@ -9,3 +9,5 @@ class ConError:
     def __init__(self):
         ConError.last_dc = datetime.now()
         ConError.total_dc += 1
+
+        self.time = datetime.now()
