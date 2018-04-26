@@ -1,4 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
 body {
-    background: seagreen;
-    color: black;
+    background-attachment: fixed;
+    background-image: url("background.png");
+    background-size: cover;
+}
+
+#center-div-parent {
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#center-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 440px;
+    height: 220px;
+    text-align: center;
+    border-radius: 35px;
+    background-color: coral;
+}
+
+#center-div p {
+    height: 0px;
+    font-size: 18px;
+    font-family: 'Bitter', serif;
+}
+
+#last-item {
+    padding-bottom: 20px;
 }

@@ -6,10 +6,14 @@
     <title>Tojvoroid App</title>
 </head>
 <body>
-<p>Start time: {{start_time}}</p>
-<p>Internet Connection: <b>{{internet_status}}</b></p>
-<p>Current time: {{current_time}}</p>
-<p>Last disconnect: {{last_dc}} | <a href="connection-history">Connection History</a></p>
-<p>Total disconnects: <b>{{total_dc}}</b></p>
+<div id="center-div-parent">
+    <div id="center-div">
+        <p>Start time: {{start_time}}</p>
+        <p>Internet Connection: <b>{{internet_status}}</b></p>
+        <p>Current time: {{current_time}}</p>
+        <p>Latest disconnect: {{last_dc}} | <a href="connection-history">Connection History</a></p>
+        <p id="last-item">Total disconnects: <b>{{total_dc}}</b></p>
+    </div>
+</div>
 </body>
 </html>
