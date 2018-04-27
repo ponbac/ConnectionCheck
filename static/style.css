@@ -23,8 +23,8 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 440px;
-    height: 220px;
+    width: 500px;
+    height: 250px;
     text-align: center;
     border-radius: 35px;
     background-color: coral;
