@@ -17,13 +17,16 @@ def index():
 @app.route('/connection-history/')
 def connection_history():
     list_dc()
-    print("history")
-    return render_template('connection-history.html')
+    return render_template('connection-history.html', dc_list=list_dc())
 
 
 def list_dc():
+    dc_list_html = ""
+
     for dc in Main.dc_list:
-        print(str(dc.time))
+        dc_list_html += "<p>" + '{:.19}'.format(str(dc.time)) +"</p>"
+
+    return dc_list_html
 
 
 if __name__ == '__main__':
