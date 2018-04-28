@@ -23,7 +23,7 @@ class Main (threading.Thread):
     def run(self):
         Main.start_time = '{:.19}'.format(str(datetime.now()))
 
-        ip_addresses = ["216.58.192.142", "aftonbladet.se", "mixer.com", "op.gg", "sundsvall.se"]
+        ip_addresses = ["216.58.192.142", "aftonbladet.se", "mixer.com", "op.gg"]
 
         def internet_on(ip_list):
             success = False
@@ -44,7 +44,6 @@ class Main (threading.Thread):
 
             if not success:
                 Main.dc_list.append(ConError())
-                print(Main.dc_list[0].time)
 
             return success
 
