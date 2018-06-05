@@ -23,8 +23,13 @@ def connection_history():
 def list_dc():
     dc_list_html = ""
 
-    for dc in Main.dc_list:
-        dc_list_html += "<p>" + '{:.19}'.format(str(dc.time)) +"</p>"
+    counter = 0
+    for dc in reversed(Main.dc_list):
+        if (counter < 6):
+            dc_list_html += "<p>" + '{:.19}'.format(str(dc.time)) +"</p>"
+            counter += 1
+        else:
+            break
 
     return dc_list_html
 
