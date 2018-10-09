@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from threading import Thread
 from Main import Main
 from ConError import ConError
+import socket
 
 main_thread = Main()
 main_thread.start()
@@ -35,4 +36,4 @@ def list_dc():
 
 
 if __name__ == '__main__':
-    app.run(host='localhost')
+    app.run(host=socket.gethostbyname(socket.gethostname()))
