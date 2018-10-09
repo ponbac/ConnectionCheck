@@ -44,6 +44,9 @@ class Main (threading.Thread):
 
             if not success:
                 Main.dc_list.append(ConError())
+                history_file = open('history.txt', 'a+')
+                history_file.write('{:.19}'.format(str(datetime.now())) + '\n')
+                history_file.close()
 
             return success
 
@@ -54,7 +57,7 @@ class Main (threading.Thread):
             Main.total_dc = str(ConError.total_dc)
 
             if not Main.internet_status:
-                sleep(300)
+                sleep(30)
             else:
                 sleep(randint(7, 30))
 
