@@ -57,7 +57,7 @@ class Main (threading.Thread):
             Main.total_dc = str(ConError.total_dc)
 
             if not Main.internet_status:
-                sleep(30)
+                sleep(600)
             else:
                 sleep(randint(7, 30))
 
