@@ -1,6 +1,4 @@
-import os
 from playsound import playsound
-from gtts import gTTS
 from datetime import datetime, timedelta
 
 
