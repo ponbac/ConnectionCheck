@@ -6,6 +6,7 @@ from ConError import ConError
 from datetime import datetime
 import socket
 import threading
+from Alarm import Alarm
 
 
 class Main (threading.Thread):
@@ -59,6 +60,7 @@ class Main (threading.Thread):
             if not Main.internet_status:
                 sleep(600)
             else:
+                Alarm(self.dc_list)
                 sleep(randint(7, 30))
 
 
