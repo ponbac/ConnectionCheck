@@ -27,7 +27,7 @@ class Alarm:
             self.play(30)
             Alarm.reset_played_status()
             Alarm.thirty_played = True
-        elif time_to_dc <= 5 and not Alarm.five_played:
+        elif 0 < time_to_dc <= 5 and not Alarm.five_played:
             self.play(5)
             Alarm.reset_played_status()
             Alarm.five_played = True
@@ -38,6 +38,6 @@ class Alarm:
     def next_dc(self):
         if len(self.dc_list) >= 4:
             critical_dc = self.dc_list[-4]
-            return critical_dc + timedelta(days=2) + timedelta(minutes=15)
+            return critical_dc.time + timedelta(days=3) + timedelta(minutes=15)
         else:
             return datetime(year=2500, month=1, day=1, hour=1, minute=1, second=1)
