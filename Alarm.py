@@ -1,5 +1,5 @@
-from playsound import playsound
 from datetime import datetime, timedelta
+from pushsafer import init, Client
 
 
 class Alarm:
@@ -14,26 +14,31 @@ class Alarm:
         Alarm.five_played = False
 
     def __init__(self, dc_list):
+        init("qQUde1zemdqdV5iZFACz")
         self.dc_list = dc_list
 
         time_to_dc = self.next_dc() - datetime.now()
         time_to_dc = divmod(time_to_dc.seconds, 60)[0]
 
         if 30 < time_to_dc <= 60 and not Alarm.sixty_played:
-            self.play(60)
+            self.push_notification(60)
             Alarm.reset_played_status()
             Alarm.sixty_played = True
         elif 5 < time_to_dc <= 30 and not Alarm.thirty_played:
-            self.play(30)
+            self.push_notification(30)
             Alarm.reset_played_status()
             Alarm.thirty_played = True
         elif 0 < time_to_dc <= 5 and not Alarm.five_played:
-            self.play(5)
+            self.push_notification(5)
             Alarm.reset_played_status()
             Alarm.five_played = True
 
-    def play(self, time):
-        playsound("sounds/" + str(time) + "min.mp3")
+    def push_notification(self, time):
+        push_title = str(time) + " min to DC!"
+        Client("").send_message(message="You will disconnect soon!", title=push_title, device="a", icon="1", sound="0", vibration="1",
+                                url="http://192.168.0.142:5000/", urltitle="Tojvoroid", time2live="0", priority="0",
+                                retry="100",
+                                expire="300", answer="0", picture1="0", picture2="0", picture3="0")
 
     def next_dc(self):
         if len(self.dc_list) >= 4:
