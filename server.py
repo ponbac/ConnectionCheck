@@ -12,7 +12,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', start_time=Main.start_time, internet_status=Main.internet_status, current_time=Main.current_time, last_dc=Main.last_dc, total_dc=Main.total_dc)
+    return render_template('index.html', start_time=Main.start_time, internet_status=Main.internet_status,
+                           current_time=Main.current_time, last_dc=Main.last_dc, total_dc=Main.total_dc,
+                           next_dc=Main.next_dc)
 
 
 @app.route('/connection-history/')
@@ -27,7 +29,7 @@ def list_dc():
     counter = 0
     for dc in reversed(Main.dc_list):
         if (counter < 6):
-            dc_list_html += "<p>" + '{:.19}'.format(str(dc.time)) +"</p>"
+            dc_list_html += "<p>" + '{:.19}'.format(str(dc.time)) + "</p>"
             counter += 1
         else:
             break

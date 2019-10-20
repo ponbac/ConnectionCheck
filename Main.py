@@ -3,26 +3,26 @@ from urllib import error
 from time import sleep
 from random import randint
 from ConError import ConError
-from datetime import datetime
+from datetime import datetime, timedelta
 import socket
 import threading
 from Alarm import Alarm
 
 
-class Main (threading.Thread):
-
+class Main(threading.Thread):
     internet_status = ""
     current_time = ""
     last_dc = ""
     start_time = ""
     total_dc = ""
+    next_dc = ""
     dc_list = []
 
     def __init__(self):
-        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=17, hour=10, minute=26, second=58)))
-        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=4, minute=30, second=2)))
-        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=22, minute=32, second=56)))
-        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=19, hour=16, minute=36, second=15)))
+        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=17, hour=10, minute=26, second=58)))
+        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=4, minute=30, second=2)))
+        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=22, minute=32, second=56)))
+        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=19, hour=16, minute=36, second=15)))
         threading.Thread.__init__(self)
 
     def run(self):
@@ -61,11 +61,11 @@ class Main (threading.Thread):
             Main.last_dc = '{:.19}'.format(str(ConError.last_dc))
             Main.total_dc = str(ConError.total_dc)
 
+            if len(Main.dc_list) >= 4:
+                Main.next_dc = Main.dc_list[-4].time + timedelta(days=3) + timedelta(minutes=11)
+
             if not Main.internet_status:
                 sleep(600)
             else:
                 Alarm(self.dc_list)
                 sleep(randint(7, 30))
-
-
-

@@ -2,7 +2,6 @@ from datetime import datetime
 
 
 class ConError:
-
     total_dc = 0
     last_dc = "Never"
 
