@@ -37,12 +37,12 @@ class Alarm:
         push_title = str(time) + " min to DC!"
         Client("").send_message(message="You will disconnect soon!", title=push_title, device="a", icon="1", sound="0", vibration="1",
                                 url="http://192.168.0.142:5000/", urltitle="Tojvoroid", time2live="0", priority="0",
-                                retry="100",
-                                expire="300", answer="0", picture1="0", picture2="0", picture3="0")
+                                retry="0",
+                                expire="0", answer="0", picture1="0", picture2="0", picture3="0")
 
     def next_dc(self):
         if len(self.dc_list) >= 4:
             critical_dc = self.dc_list[-4]
-            return critical_dc.time + timedelta(days=3) + timedelta(minutes=15)
+            return critical_dc.time + timedelta(days=3) + timedelta(minutes=11)
         else:
             return datetime(year=2500, month=1, day=1, hour=1, minute=1, second=1)

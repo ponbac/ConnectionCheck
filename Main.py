@@ -19,6 +19,10 @@ class Main (threading.Thread):
     dc_list = []
 
     def __init__(self):
+        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=17, hour=10, minute=26, second=58)))
+        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=4, minute=30, second=2)))
+        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=22, minute=32, second=56)))
+        #Main.dc_list.append(ConError(datetime(year=2019, month=10, day=19, hour=16, minute=36, second=15)))
         threading.Thread.__init__(self)
 
     def run(self):
