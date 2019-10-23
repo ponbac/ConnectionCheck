@@ -19,16 +19,16 @@ class Main(threading.Thread):
     dc_list = []
 
     def __init__(self):
-        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=17, hour=10, minute=26, second=58)))
-        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=4, minute=30, second=2)))
-        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=18, hour=22, minute=32, second=56)))
-        Main.dc_list.append(ConError(datetime(year=2019, month=10, day=19, hour=16, minute=36, second=15)))
+        Main.dc_list.append(ConError(date=datetime(year=2019, month=10, day=20, hour=10, minute=38, second=38)))
+        Main.dc_list.append(ConError(date=datetime(year=2019, month=10, day=21, hour=4, minute=42, second=0)))
+        Main.dc_list.append(ConError(date=datetime(year=2019, month=10, day=21, hour=22, minute=44, second=38)))
+        Main.dc_list.append(ConError(date=datetime(year=2019, month=10, day=22, hour=16, minute=47, second=27)))
         threading.Thread.__init__(self)
 
     def run(self):
         Main.start_time = '{:.19}'.format(str(datetime.now()))
 
-        ip_addresses = ["216.58.192.142", "aftonbladet.se", "mixer.com", "op.gg"]
+        ip_addresses = ["216.58.192.142", "aftonbladet.se", "mixer.com"]
 
         def internet_on(ip_list):
             success = False
